@@ -17,14 +17,14 @@ namespace D.Physics
             block.PositionCoo.Y = block.PositionCoo.Y + 5;
             //Console.WriteLine("oui");
 		}
-
+		/*
 		public bool canMove(List<MBlock> map, MHero hero)
         {
 			foreach(MBlock block in map)
             {
 
 			}
-		}
+		}*/
 	}
 }
 

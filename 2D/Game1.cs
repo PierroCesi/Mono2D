@@ -13,13 +13,14 @@ namespace _2D
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private Texture2D _spriteMap;
+        private Texture2D _spriteSteve;
 
-        private Texture2D _spriteSheetTexture;
-        private List<MBlock> blockMap = new List<MBlock>();
-        private MHero Hero;
+        private List<MDisplay> Map = new List<MDisplay>();
+        //private MHero Hero;
 
-        private Utils Utils = new Utils(); //todo singletone
-        private Physics physics = new Physics(); //todo singletone
+        //private Utils Utils = new Utils(); //todo singletone
+        //private Physics physics = new Physics(); //todo singletone
 
         public const int W_WIDTH = 1000;
         public const int W_HEIGHT = 600;
@@ -42,20 +43,25 @@ namespace _2D
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _spriteSheetTexture = Content.Load<Texture2D>("sprite");
+            List<Texture2D> listTexture = new List<Texture2D>();
+            _spriteMap = Content.Load<Texture2D>("sprite");
+            _spriteSteve = Content.Load<Texture2D>("steve");
 
-            Maps maps = new Maps(_spriteSheetTexture);
-            blockMap = maps.readMaps();
+            listTexture.Add(_spriteMap);
+            listTexture.Add(_spriteSteve);
+
+            Maps maps = new Maps(_spriteMap, this.Content);
+            Map = maps.readMaps();
 
             //Hero = Utils.getObjectBytype(blockMap, typeof(MHero));
-            Hero = (MHero)Utils.getObjectBytype(blockMap, typeof(MHero));
+            //Hero = (MHero)Utils.getObjectBytype(Map, typeof(MHero));
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            /*
             if (Keyboard.GetState().IsKeyDown(Keys.Z))
             {
                 Hero.PositionCoo.Y = Hero.PositionCoo.Y - 10;
@@ -70,12 +76,12 @@ namespace _2D
             else if (Keyboard.GetState().IsKeyDown(Keys.D))
             {
                 Hero.PositionCoo.X = Hero.PositionCoo.X + 10;
-            }
+            }*/
 
-            if (Hero.doGravity)
+            /*if (Hero.doGravity)
             {
                 physics.ApplyGravity(Hero);
-            }
+            }*/
             base.Update(gameTime);
         }
 
@@ -85,7 +91,7 @@ namespace _2D
 
             _spriteBatch.Begin();
 
-            foreach(MBlock block in blockMap)
+            foreach(MDisplay block in Map)
             {
                 block.Draw(_spriteBatch);
             }

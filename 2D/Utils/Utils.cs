@@ -10,7 +10,7 @@ namespace D.Utils
 		{
 		}
 
-		public Object getObjectBytype(List<MBlock> list, Type typeWanted)
+		public Object getObjectBytype(List<dynamic> list, Type typeWanted)
         {
 
 			foreach(Object objects in list){
