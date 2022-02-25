@@ -5,6 +5,7 @@ using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using D.Model.Entity.HeroAnimation;
 
 namespace D.Maps
 {
@@ -22,11 +23,13 @@ namespace D.Maps
 
 		private Texture2D _spriteMap;
 		private Texture2D _spriteSteve;
+		private Texture2D _spriteAmogus;
 
-		public Maps(Texture2D spriteBatch, ContentManager content)
+		public Maps(ContentManager content)
 		{
 			_spriteMap = content.Load<Texture2D>("sprite");
 			_spriteSteve = content.Load<Texture2D>("steve");
+			_spriteAmogus = content.Load<Texture2D>("amogus");
 
 			Mapping.Add('*', new Func<Vector2, MBlock>(InstanceCobble));
 			Mapping.Add('+', new Func<Vector2, MEntity>(InstanceHero));
@@ -84,7 +87,6 @@ namespace D.Maps
 
 		private MCobble InstanceCobble(Vector2 position)
         {
-            Console.WriteLine("hello negro");
 			return new MCobble(_spriteMap, position);
         }
 
