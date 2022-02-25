@@ -10,13 +10,12 @@ namespace D.Utils
 		{
 		}
 
-		public Object getObjectBytype(List<dynamic> list, Type typeWanted)
+		public static MDisplay getObjectBytype(List<MDisplay> list, Type typeWanted)
         {
 
-			foreach(Object objects in list){
+			foreach(MDisplay objects in list){
 				if(objects.GetType() == typeWanted)
                 {
-                    Console.WriteLine("ONIiiiiiiiiii");
 					return objects;
                 }
             }

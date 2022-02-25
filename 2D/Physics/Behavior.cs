@@ -4,17 +4,17 @@ using D.Model;
 
 namespace D.Physics
 {
-	public class Physics
+	public class Behavior
 	{
 		public const int SHIFT = 20;
 
-		public Physics()
+		public Behavior()
 		{
 		}
 
-		public void ApplyGravity(MBlock block)
+		public void ApplyGravity(MEntity entity)
         {
-            block.PositionCoo.Y = block.PositionCoo.Y + 5;
+			entity.PositionCoo.Y = entity.PositionCoo.Y + 5;
             //Console.WriteLine("oui");
 		}
 		/*

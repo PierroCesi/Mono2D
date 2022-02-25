@@ -17,6 +17,9 @@
     <None Remove="Utils\" />
     <None Remove="Maps\" />
     <None Remove="Physics\" />
+    <None Remove="Model\Entity\" />
+    <None Remove="Model\Block\" />
+    <None Remove="Model\Entity\HeroAnimation\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -38,5 +41,8 @@
     <Folder Include="Utils\" />
     <Folder Include="Maps\" />
     <Folder Include="Physics\" />
+    <Folder Include="Model\Entity\" />
+    <Folder Include="Model\Block\" />
+    <Folder Include="Model\Entity\HeroAnimation\" />
   </ItemGroup>
 </Project>
